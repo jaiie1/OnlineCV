@@ -21,7 +21,7 @@ namespace OnlineCV.Api
 
             services.AddCors(option => option.AddPolicy("All", next => next
                                                                             .AllowAnyHeader()
-                                                                            .AllowAnyOrigin()
+                                                                            .AllowAnyOrigin()                                                                            
                                                                             .AllowAnyMethod()));
         }
 
