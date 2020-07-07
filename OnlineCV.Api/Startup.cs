@@ -9,14 +9,7 @@ namespace OnlineCV.Api
 {
     public class Startup
     {
-        private IConfiguration _configuration;
-
-        public Startup(IConfiguration conf)
-        {
-            _configuration = conf;
-
-        }
-       
+              
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
