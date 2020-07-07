@@ -71,7 +71,7 @@ namespace OnlineCv.Libary
                     SchoolClasses = x.SchoolClasses,
                     SchoolDate = x.SchoolDate
                 }).FirstOrDefault();
-        
+               
 
         public class SchoolViewModel
         {
