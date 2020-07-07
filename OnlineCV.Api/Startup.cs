@@ -26,7 +26,10 @@ namespace OnlineCV.Api
             //// Register all services here:
             //services.AddDbContext<ApplicationDbContext>(options => options.);
 
-            services.AddCors(option => option.AddPolicy("All", next => next.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
+            services.AddCors(option => option.AddPolicy("All", next => next
+                                                                            .AllowAnyHeader()
+                                                                            .AllowAnyOrigin()
+                                                                            .AllowAnyMethod()));
         }
 
         
