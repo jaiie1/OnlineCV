@@ -26,7 +26,7 @@ namespace OnlineCV.Api
         }
 
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext ctx)
         {
             if (env.IsDevelopment())
             {
@@ -43,6 +43,8 @@ namespace OnlineCV.Api
             {
                 endpoints.MapDefaultControllerRoute();
             });
+
+            //MockData.FillIfEmpty(ctx);
         }
     }
 }
