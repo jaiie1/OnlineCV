@@ -3,16 +3,27 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
 using OnlineCV.Data;
 
 namespace OnlineCV.Api
 {
     public class Startup
     {
+        private readonly IConfiguration _config;
+
+        public Startup(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
               
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var conn = _config.GetConnectionString("OnlineCv");
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
 
             services.AddSingleton<JobbLibary>();
             //var conn = _configuration.GetConnectionString("");
