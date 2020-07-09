@@ -23,8 +23,10 @@ namespace OnlineCV.Api
             services.AddControllers();
 
             var conn = _config.GetConnectionString("OnlineCv");
+            //// Register all services here:
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
 
+            //services.BuildServiceProvider().GetService<ApplicationDbContext>().Database.Migrate();
             services.AddSingleton<JobbLibary>();
             //var conn = _configuration.GetConnectionString("");
             //// Register all services here:
@@ -55,7 +57,7 @@ namespace OnlineCV.Api
                 endpoints.MapDefaultControllerRoute();
             });
 
-            //MockData.FillIfEmpty(ctx);
+            MockData.FillIfEmpty(ctx);
         }
     }
 }
