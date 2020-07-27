@@ -17,11 +17,11 @@ namespace OnlineCV.Api.Controllers
             _jobb = jobb;
         }
 
-        // /api/Cvs
+        // /api/Jobb
         [HttpGet]
         public IActionResult GetAll() => Ok(_jobb.GetAll);
 
-        // /api/Cvs{id}
+        // /api/Jobb{id}
         [HttpGet("{id}")]
         public IActionResult GetId(int id) => Ok(_jobb.GetAll.FirstOrDefault(x => x.Id.Equals(id)));
 
@@ -31,13 +31,13 @@ namespace OnlineCV.Api.Controllers
             _jobb.Add(jobb);
             return Ok();
         }
-        // /api/Cvs
+        // /api/Jobb
         [HttpPut]
         public IActionResult Update([FromBody] Jobb jobb)
         {
             throw new NotImplementedException();
         }
-        // /api/Cvs{id}
+        // /api/Jobb{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

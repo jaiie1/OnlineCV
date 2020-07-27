@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OnlineCv.Libary.Interface
 {
     public interface IJobbrepository
     {
-        public IEnumerable<Jobb> GetAll();
+        public Task<IEnumerable<Jobb>> GetAll();
         Jobb Get(int id);
 
     }

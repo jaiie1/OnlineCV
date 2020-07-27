@@ -25,20 +25,13 @@ namespace OnlineCV.Api
             var conn = _config.GetConnectionString("OnlineCv");
             //// Register all services here:
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
-
             //services.BuildServiceProvider().GetService<ApplicationDbContext>().Database.Migrate();
             services.AddSingleton<JobbLibary>();
-            //var conn = _configuration.GetConnectionString("");
-            //// Register all services here:
-            //services.AddDbContext<ApplicationDbContext>(options => options.);
-
             services.AddCors(option => option.AddPolicy("All", next => next
                                                                             .AllowAnyHeader()
                                                                             .AllowAnyOrigin()                                                                            
                                                                             .AllowAnyMethod()));
-        }
-
-        
+        }        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext ctx)
         {
             if (env.IsDevelopment())
