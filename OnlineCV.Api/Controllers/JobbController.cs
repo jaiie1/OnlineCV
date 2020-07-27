@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineCv.Libary.Interface;
 using OnlineCV.Api.Models;
 using System;
 using System.Linq;
@@ -10,25 +11,24 @@ namespace OnlineCV.Api.Controllers
     [Route("api/jobbcontroller")]
     public class JobbController : ControllerBase
     {
-        private readonly JobbLibary _jobb;
+        private readonly IJobbrepository _jobb;
 
-        public JobbController(JobbLibary jobb)
+        public JobbController(IJobbrepository jobb)
         {
             _jobb = jobb;
         }
 
         // /api/Jobb
         [HttpGet]
-        public IActionResult GetAll() => Ok(_jobb.GetAll);
+        public IActionResult GetAll() => Ok(_jobb.GetAll());
 
-        // /api/Jobb{id}
-        [HttpGet("{id}")]
-        public IActionResult GetId(int id) => Ok(_jobb.GetAll.FirstOrDefault(x => x.Id.Equals(id)));
+        //// /api/Jobb{id}
+        //[HttpGet("{id}")]
+        //public IActionResult GetId(int id) => Ok(_jobb.GetAll.FirstOrDefault(x => x.Id.Equals(id)));
 
         [HttpPost]
         public IActionResult Create([FromBody] Jobb jobb)
         {
-            _jobb.Add(jobb);
             return Ok();
         }
         // /api/Jobb

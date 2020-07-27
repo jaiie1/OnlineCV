@@ -12,17 +12,11 @@ namespace OnlineCv.Libary
 {
     public class JobbRepository : IJobbrepository
     {
-        private readonly ApplicationDbContext _contex;
-        private static ConcurrentDictionary<string, Jobb> jobbCache;
+        private readonly ApplicationDbContext _contex;        
 
         public JobbRepository(ApplicationDbContext context)
         {
-            this._contex = context;
-
-            if(jobbCache == null)
-            {
-                jobbCache = new ConcurrentDictionary<string, Jobb>((IEqualityComparer<string>)_contex.jobbs.ToDictionary(c => c.Id));
-            }
+            this._contex = context;           
         }
 
 
@@ -31,10 +25,9 @@ namespace OnlineCv.Libary
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Jobb>>GetAll()
+        public IEnumerable<Jobb>GetAll()
         {
-            return Task.Run<IEnumerable<Jobb>>(
-                () => jobbCache.Values);
+            return _contex.jobbs;
         }
     }
 }

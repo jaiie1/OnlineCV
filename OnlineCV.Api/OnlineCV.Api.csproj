@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnlineCV.Data\OnlineCV.Data.csproj" />
+    <ProjectReference Include="..\OnlineCv.Libary\OnlineCv.Libary.csproj" />
   </ItemGroup>
 
 </Project>

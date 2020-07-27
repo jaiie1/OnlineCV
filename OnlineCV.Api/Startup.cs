@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using OnlineCV.Data;
+using OnlineCv.Libary.Interface;
+using OnlineCv.Libary;
 
 namespace OnlineCV.Api
 {
@@ -31,6 +33,8 @@ namespace OnlineCV.Api
                                                                             .AllowAnyHeader()
                                                                             .AllowAnyOrigin()                                                                            
                                                                             .AllowAnyMethod()));
+
+            services.AddTransient<IJobbrepository, JobbRepository>();
         }        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext ctx)
         {
