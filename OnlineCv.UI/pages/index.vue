@@ -28,7 +28,7 @@
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 import Axios from 'axios'
-// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 export default {
   components: {
@@ -42,7 +42,7 @@ export default {
 
   asyncData(payload){
     console.log("working");
-    return Axios.get("https://localhost:44357/api/home")
+    return Axios.get("https://localhost:44357/api/jobbcontroller")
     .then(({data}) => {
       return {message: data}
     })

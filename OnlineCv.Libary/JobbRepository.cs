@@ -22,6 +22,7 @@ namespace OnlineCv.Libary
 
         public Jobb Get(int id)
         {
+            return _contex.jobbs.FirstOrDefault(x => x.Id == id);
             throw new NotImplementedException();
         }
 
