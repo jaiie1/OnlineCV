@@ -53,7 +53,12 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    
   ],
+
+  axios: {
+    baseURL: "http://localhost:3000/"
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
